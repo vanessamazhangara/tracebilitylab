@@ -6,7 +6,7 @@ const container = document.querySelector('section');
 
     function putTheThingInTheView(res) {
         container.innerHTML = ''
-        nameInput.value = ''
+        countryInput.value = ''
 
         res.data.forEach((countryName, index) => {
             container.innerHTML += `<p name=${index}>${countryName}</p>`
@@ -26,8 +26,9 @@ const container = document.querySelector('section');
     };
 
 
-    function submitCountry (e) {
+    function submitCountry (evt) {
         evt.preventDefault();
+        console.log('wwww')
 
         axios.post('/api/country', {name: countryInput.value})
         .then(res => {
@@ -36,3 +37,6 @@ const container = document.querySelector('section');
         .catch((err) => console.log(err))
 
     }
+
+    addForm.addEventListener('submit', submitCountry);
+    
