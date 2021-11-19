@@ -30,21 +30,22 @@ app.get('/', (req, res) => {
 app.post('/api/country', (req, res) => {
     const {name} = req.body
     countries.push(name)
+    res.status(200).send(countries)
     
    
 
-   try {
-        if (name === "") {
-        rollbar.error("Someone tired to enter no name")
-        res.status(400).send('must provide a country')
-     } else {
-        rollbar.log('Name submitted succesfully')
-        res.status(200).send(countries)
-    }
-} catch (err) {
-    console.log(err)
-    rollbar.error(err)
-  }
+//    try {
+//         if (name === "") {
+//         rollbar.error("Someone tired to enter no name")
+//         res.status(400).send('must provide a country')
+//      } else {
+//         rollbar.log('Name submitted succesfully')
+//         res.status(200).send(countries)
+//     }
+// } catch (err) {
+//     console.log(err)
+//     rollbar.error(err)
+//   }
 
 });
 
