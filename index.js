@@ -48,5 +48,5 @@ app.post('/api/country', (req, res) => {
 //   }
 
 });
-
-app.listen(5050, () => console.log(`server is running on port ${5050}`));
+const port = process.env.PORT || 5050
+app.listen(port, () => console.log(`server is running on port ${port}`));
